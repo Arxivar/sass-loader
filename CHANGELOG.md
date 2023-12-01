@@ -2,6 +2,111 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 14.0.0 (2023-12-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* minimum supported `Node.js` version is `14.15.0` (#1048)
+* minimum supported `Node.js` version is `12.13.0`
+* minimum supported `webpack` version is `5`
+* loader generates absolute `sources` in source maps, avoid modifying `sass` source maps if the `sourceMap` option is `false`
+* when the `sourceMap` is `true`, `sassOptions.sourceMap`, `sassOptions.sourceMapContents`, `sassOptions.sourceMapEmbed`, `sassOptions.sourceMapRoot` and `sassOptions.omitSourceMapUrl` will be ignored.
+* minimum supported Nodejs version is `10.13`
+* prefer `sass` (`dart-sass`) by default
+* This slightly changes the resolving algorithm. Should not break in normal usage, but might break in complex configurations.
+* The sass-loader throws an error at runtime now and refuses to compile if the peer dependency is wrong. This could break applications where npm's peer dependency warning was just ignored.
+
+### Features
+
+* `webpackImporter` option ([#732](https://github.com/webpack-contrib/sass-loader/issues/732)) ([6f4ea37](https://github.com/webpack-contrib/sass-loader/commit/6f4ea37eca98ed48305634416391f8a4c95a7e81))
+* add `sass-embedded` to auto loading ([#1025](https://github.com/webpack-contrib/sass-loader/issues/1025)) ([c8dae87](https://github.com/webpack-contrib/sass-loader/commit/c8dae87f0c90b13303096e0d3aec857c4046c36b))
+* add link field in schema ([#976](https://github.com/webpack-contrib/sass-loader/issues/976)) ([1b453fb](https://github.com/webpack-contrib/sass-loader/commit/1b453fb4926ab27616f3c38104033fafe37633ab))
+* add support for node-sass 7 ([#1002](https://github.com/webpack-contrib/sass-loader/issues/1002)) ([be5cbc9](https://github.com/webpack-contrib/sass-loader/commit/be5cbc9b5f851422bcead329d4bfb0c9dab5eb18))
+* add support for node-sass v8 ([#1100](https://github.com/webpack-contrib/sass-loader/issues/1100)) ([e5581b7](https://github.com/webpack-contrib/sass-loader/commit/e5581b75e84879f27e221d67caa8507897e7051d))
+* add support for node-sass v9 ([#1140](https://github.com/webpack-contrib/sass-loader/issues/1140)) ([9a03c87](https://github.com/webpack-contrib/sass-loader/commit/9a03c87b192866a616a3fbab37dbeb3ea132de6b))
+* added `sass-embedded` support and the `api` option ([afbe114](https://github.com/webpack-contrib/sass-loader/commit/afbe114fecf54fa99ef635aea5ae1d3db6a119c1))
+* added the `warnRuleAsWarning` option, allow to emit a warning on the `[@warn](https://github.com/warn)` rule ([#992](https://github.com/webpack-contrib/sass-loader/issues/992)) ([c652c79](https://github.com/webpack-contrib/sass-loader/commit/c652c79b67999546d0e65f237a947b3e1b454691))
+* allow `String` value for the `implementation` option ([382a3ca](https://github.com/webpack-contrib/sass-loader/commit/382a3ca7ca8b7041712de30ce5ad8e6532944c1b))
+* allow customize `mainFields` and `extensions` ([#710](https://github.com/webpack-contrib/sass-loader/issues/710)) ([28f1884](https://github.com/webpack-contrib/sass-loader/commit/28f188480958a2030bb9691972bb0cacdc3a02c9))
+* allow passing `functions` option as function ([#651](https://github.com/webpack-contrib/sass-loader/issues/651)) ([6c9654d](https://github.com/webpack-contrib/sass-loader/commit/6c9654d2e36e7aaa35a25be9c3c6f4bda9b12b70))
+* allow the `additionalData` to be async ([#902](https://github.com/webpack-contrib/sass-loader/issues/902)) ([9d925ff](https://github.com/webpack-contrib/sass-loader/commit/9d925ff794e1e4cb9db253a6867bfa2405ec3428))
+* allow to extend `conditionNames` ([#1092](https://github.com/webpack-contrib/sass-loader/issues/1092)) ([6e02c64](https://github.com/webpack-contrib/sass-loader/commit/6e02c64da80e3c8b3b6399923b7268aaf957d2cb))
+* emit `[@warning](https://github.com/warning)` as webpack warning ([#1054](https://github.com/webpack-contrib/sass-loader/issues/1054)) ([58ffb68](https://github.com/webpack-contrib/sass-loader/commit/58ffb686768defb684669a2428bea040c95c2399))
+* Make this package implementation-agnostic ([#573](https://github.com/webpack-contrib/sass-loader/issues/573)) ([bed9fb5](https://github.com/webpack-contrib/sass-loader/commit/bed9fb5799a90020d43f705ea405f85b368621d7)), closes [#435](https://github.com/webpack-contrib/sass-loader/issues/435)
+* pass the loader context to custom importers under `this.webpackLoaderContext` property ([#853](https://github.com/webpack-contrib/sass-loader/issues/853)) ([d487683](https://github.com/webpack-contrib/sass-loader/commit/d487683221fcd1e5a173e083b4b40644751c8cb1))
+* prefer `sass` (`dart-sass`) by default ([#826](https://github.com/webpack-contrib/sass-loader/issues/826)) ([3ad5291](https://github.com/webpack-contrib/sass-loader/commit/3ad529157d1bcff1905be19dd18d0192bc89f29a))
+* Refactor resolving and simplify webpack config aliases ([#479](https://github.com/webpack-contrib/sass-loader/issues/479)) ([e0fde1a](https://github.com/webpack-contrib/sass-loader/commit/e0fde1a45640a64edc5a47b130318d0c4549b3e2))
+* Remove `node-sass` from `peerDependencies` ([#533](https://github.com/webpack-contrib/sass-loader/issues/533)) ([6439cef](https://github.com/webpack-contrib/sass-loader/commit/6439cef04b342be6787e6fe3182655af3abff877))
+* support `data` as `Function` ([#648](https://github.com/webpack-contrib/sass-loader/issues/648)) ([aa64e1b](https://github.com/webpack-contrib/sass-loader/commit/aa64e1b1e8c25573fc7710e6fe0aa110d4139def))
+* support `node-sass` v6.0.0 ([#947](https://github.com/webpack-contrib/sass-loader/issues/947)) ([7869b29](https://github.com/webpack-contrib/sass-loader/commit/7869b29916d5120037a0e67063420b3333d7f68b))
+* support `process.cwd()` resolution ([#837](https://github.com/webpack-contrib/sass-loader/issues/837)) ([0c8d3b3](https://github.com/webpack-contrib/sass-loader/commit/0c8d3b3fb1cf371779b4a886cfc4e60facf68759))
+* support `sass` field in `package.json` ([#647](https://github.com/webpack-contrib/sass-loader/issues/647)) ([a8709c9](https://github.com/webpack-contrib/sass-loader/commit/a8709c94a7bb4ef2a449157c450716cbfa1b5ea3))
+* support auto resolving `dart-sass` ([ff90dd6](https://github.com/webpack-contrib/sass-loader/commit/ff90dd62cdfc51b4ca6cd755a65d3e2adc51657a))
+* support SASS-PATH env variable ([#836](https://github.com/webpack-contrib/sass-loader/issues/836)) ([8376179](https://github.com/webpack-contrib/sass-loader/commit/83761798380dcccc5a2badde3b3affe2bac385e8))
+* support the `resolve.byDependecy.sass` option ([#920](https://github.com/webpack-contrib/sass-loader/issues/920)) ([f403a4e](https://github.com/webpack-contrib/sass-loader/commit/f403a4e161b852bfd501d65ca6b4795f7c6c1b4a))
+* use webpack logger to log sass messages (only for `dart-sass`), configure it using https://webpack.js.org/configuration/other-options/#infrastructurelogging ([#991](https://github.com/webpack-contrib/sass-loader/issues/991)) ([bb7cef9](https://github.com/webpack-contrib/sass-loader/commit/bb7cef97d5d9ba26dc2db2e1948a2a04b26f4031))
+
+
+### Bug Fixes
+
+* avoid different content on different os ([#832](https://github.com/webpack-contrib/sass-loader/issues/832)) ([68dd278](https://github.com/webpack-contrib/sass-loader/commit/68dd27883ce0536adc5bc170816242c67fb118ff))
+* Bare imports not working sometimes ([#579](https://github.com/webpack-contrib/sass-loader/issues/579)) ([c348281](https://github.com/webpack-contrib/sass-loader/commit/c3482816df15efa33e7c7652fe6ce73ccc73e986)), closes [#566](https://github.com/webpack-contrib/sass-loader/issues/566)
+* better handle stdin in sources ([#681](https://github.com/webpack-contrib/sass-loader/issues/681)) ([e279f2a](https://github.com/webpack-contrib/sass-loader/commit/e279f2a129eee0bd0b624b5acd498f23a81ee35e))
+* ci ([#1056](https://github.com/webpack-contrib/sass-loader/issues/1056)) ([9714899](https://github.com/webpack-contrib/sass-loader/commit/97148990bea7b66b0a273671794930749adb9f9c))
+* compatibility with custom importers for `node-sass` ([#927](https://github.com/webpack-contrib/sass-loader/issues/927)) ([af5a072](https://github.com/webpack-contrib/sass-loader/commit/af5a072c5170f96f3d0643dec658248d98f65ff7))
+* compatibility with node@8 ([#798](https://github.com/webpack-contrib/sass-loader/issues/798)) ([6f3852f](https://github.com/webpack-contrib/sass-loader/commit/6f3852f7d393dd0bc8f8d264d81ecc941bc72511))
+* compatibility with the filesystem cache ([#896](https://github.com/webpack-contrib/sass-loader/issues/896)) ([e31f9b6](https://github.com/webpack-contrib/sass-loader/commit/e31f9b682f62e957fd2075582c3cf6cf0daf6b52))
+* crash in custom importers with worker threads ([#958](https://github.com/webpack-contrib/sass-loader/issues/958)) ([67aa139](https://github.com/webpack-contrib/sass-loader/commit/67aa1391c12013aae70e08f5bbabb94e74b10a6d))
+* disabled auto importing `fiber` on node >= 16 due incompatibility problems ([#950](https://github.com/webpack-contrib/sass-loader/issues/950)) ([4ca004b](https://github.com/webpack-contrib/sass-loader/commit/4ca004b9e733bd2261ec68a7db4de07d79cf331a))
+* do not crash on a custom scheme in `[@import](https://github.com/import)`/`[@use](https://github.com/use)` for the modern API ([21966ee](https://github.com/webpack-contrib/sass-loader/commit/21966ee01efde0368996ac743a90efcb51c8d591))
+* do not crash on errors ([#860](https://github.com/webpack-contrib/sass-loader/issues/860)) ([e854933](https://github.com/webpack-contrib/sass-loader/commit/e8549330f8d9373ff8baccffbfd3e0c3b6f3ef61))
+* do not crash on importers for modern API ([#1052](https://github.com/webpack-contrib/sass-loader/issues/1052)) ([095814e](https://github.com/webpack-contrib/sass-loader/commit/095814e6c2a991bacad3c3af4f239e9b1bc4b2e3))
+* do not store original sass error in webpack error([#1053](https://github.com/webpack-contrib/sass-loader/issues/1053)) ([06d7533](https://github.com/webpack-contrib/sass-loader/commit/06d7533cef2029d4a91f4760071078eb676c8c1c))
+* error handling better ([#1141](https://github.com/webpack-contrib/sass-loader/issues/1141)) ([1f99474](https://github.com/webpack-contrib/sass-loader/commit/1f9947441ae95f7bd396886ec7a7d0ecbe939f8c))
+* Errors being swallowed when trying to load node-sass ([#576](https://github.com/webpack-contrib/sass-loader/issues/576)) ([6dfb274](https://github.com/webpack-contrib/sass-loader/commit/6dfb274a49c1255ec7471eea0b64f786fb6b8eaa)), closes [#563](https://github.com/webpack-contrib/sass-loader/issues/563)
+* generate absolute sources for source maps ([#882](https://github.com/webpack-contrib/sass-loader/issues/882)) ([769a06e](https://github.com/webpack-contrib/sass-loader/commit/769a06e0901c297ca1ce6c08742643ad5c9d4dca))
+* handle module import ending `/` as module ([#728](https://github.com/webpack-contrib/sass-loader/issues/728)) ([997a255](https://github.com/webpack-contrib/sass-loader/commit/997a255d7bad7b1ce58bc51425fc048ee77b5d47))
+* hide error stacktrace on Sass errors ([#1069](https://github.com/webpack-contrib/sass-loader/issues/1069)) ([5e6a61b](https://github.com/webpack-contrib/sass-loader/commit/5e6a61bd7248ff13fd4dbe882b2556f70cecf892))
+* importing file directly from scoped npm package ([#450](https://github.com/webpack-contrib/sass-loader/issues/450)) ([5d06e9d](https://github.com/webpack-contrib/sass-loader/commit/5d06e9d51e82ed41a6034994aef3d3468a27b9c8))
+* minimum `node` version in `package.json` ([#733](https://github.com/webpack-contrib/sass-loader/issues/733)) ([1175920](https://github.com/webpack-contrib/sass-loader/commit/11759202d50c377e2859dfd97f9c47fa7a0e5ec0))
+* optimize debug message formatting, [#1065](https://github.com/webpack-contrib/sass-loader/issues/1065) ([#1066](https://github.com/webpack-contrib/sass-loader/issues/1066)) ([49a578a](https://github.com/webpack-contrib/sass-loader/commit/49a578a218574ddc92a597c7e365b6c21960717e))
+* **package:** add `webpack >= v4.0.0` (`peerDependencies`) ([#541](https://github.com/webpack-contrib/sass-loader/issues/541)) ([620bdd4](https://github.com/webpack-contrib/sass-loader/commit/620bdd4eb01ec34657852f57b532527a90b6311d))
+* perf ([#840](https://github.com/webpack-contrib/sass-loader/issues/840)) ([744112d](https://github.com/webpack-contrib/sass-loader/commit/744112d6eb9d10effa051e9fa705067e3f5c4e24))
+* **perf:** avoid using `klona` for `sass` options ([#1145](https://github.com/webpack-contrib/sass-loader/issues/1145)) ([9e87b6b](https://github.com/webpack-contrib/sass-loader/commit/9e87b6b103c4f8a32f89235f97f006c3a1115355))
+* prefer `sass`/`scss`/`css` extensions ([#711](https://github.com/webpack-contrib/sass-loader/issues/711)) ([6fc9d4e](https://github.com/webpack-contrib/sass-loader/commit/6fc9d4e882578b6f449b97b7beeab7656a76a9d7))
+* prefer `scss`, `sass` and `css` extensions in resolving ([#645](https://github.com/webpack-contrib/sass-loader/issues/645)) ([f524223](https://github.com/webpack-contrib/sass-loader/commit/f524223d769b747f45dd3db8043eaa6c9c768c54))
+* prefer sources from the `includePaths` values ([#823](https://github.com/webpack-contrib/sass-loader/issues/823)) ([d2e5262](https://github.com/webpack-contrib/sass-loader/commit/d2e52627be4145b3eaea13bb1295ce8b6eff36b9))
+* problem with resolving and the `includePaths` option ([#913](https://github.com/webpack-contrib/sass-loader/issues/913)) ([cadc75e](https://github.com/webpack-contrib/sass-loader/commit/cadc75e80caf7d32ea47de1cbaab639f9204c0eb))
+* relax node engine ([#708](https://github.com/webpack-contrib/sass-loader/issues/708)) ([2a51502](https://github.com/webpack-contrib/sass-loader/commit/2a515023958e0c11519d9b55856d63be4ce9027c))
+* Report error to user for problems loading node-sass ([#562](https://github.com/webpack-contrib/sass-loader/issues/562)) ([2529c07](https://github.com/webpack-contrib/sass-loader/commit/2529c0716b1bca321c22d16636b1385682b1c730))
+* resolution algorithm ([#720](https://github.com/webpack-contrib/sass-loader/issues/720)) ([0e94940](https://github.com/webpack-contrib/sass-loader/commit/0e9494074f69a6b6d47efea6c083a02a31a5ae84))
+* resolution algorithm ([#875](https://github.com/webpack-contrib/sass-loader/issues/875)) ([ea73cfa](https://github.com/webpack-contrib/sass-loader/commit/ea73cfab047c751e1055d0c2ec58ef503f7dbe36))
+* resolution algorithm for `node-sass` ([#866](https://github.com/webpack-contrib/sass-loader/issues/866)) ([4584c90](https://github.com/webpack-contrib/sass-loader/commit/4584c9054befbc56661e2781a55df96fb9f94673))
+* resolution for `file` scheme ([17832fd](https://github.com/webpack-contrib/sass-loader/commit/17832fdb11f91593f4e2995003d67aebefb3be90))
+* resolution logic ([3abe3f5](https://github.com/webpack-contrib/sass-loader/commit/3abe3f57b1789ce094c387a51d8ed75adb742f4f))
+* resolution logic ([#830](https://github.com/webpack-contrib/sass-loader/issues/830)) ([fe3b33b](https://github.com/webpack-contrib/sass-loader/commit/fe3b33bb551261cad3c17c4b9f971869b2bd8695))
+* resolution logic ([#831](https://github.com/webpack-contrib/sass-loader/issues/831)) ([1655baf](https://github.com/webpack-contrib/sass-loader/commit/1655baf9438c5f544751f2293c7d06ff2aa511df))
+* resolution logic ([#838](https://github.com/webpack-contrib/sass-loader/issues/838)) ([7380b7b](https://github.com/webpack-contrib/sass-loader/commit/7380b7b0b9a61da537733dc96efd7078200e95a7))
+* resolution logic ([#839](https://github.com/webpack-contrib/sass-loader/issues/839)) ([aeb86f0](https://github.com/webpack-contrib/sass-loader/commit/aeb86f078d01460990aa8b06fce81b6fe7e3fbb6))
+* resolution logic when the `includePaths` option used ([#827](https://github.com/webpack-contrib/sass-loader/issues/827)) ([cbe5ad4](https://github.com/webpack-contrib/sass-loader/commit/cbe5ad407582a617be097d3eadd3ad8619e52507))
+* resolving `_index.import.scss`/`index.import.scss` in packages ([#906](https://github.com/webpack-contrib/sass-loader/issues/906)) ([6641a16](https://github.com/webpack-contrib/sass-loader/commit/6641a16d510db653fbdc2bcfc265603c9f6fcd1a))
+* Resolving of scoped npm packages ([#447](https://github.com/webpack-contrib/sass-loader/issues/447)) ([8d37244](https://github.com/webpack-contrib/sass-loader/commit/8d3724430867f011b0af8a229ab286d05a686420))
+* source maps generation ([#886](https://github.com/webpack-contrib/sass-loader/issues/886)) ([8327d55](https://github.com/webpack-contrib/sass-loader/commit/8327d55df9e8fc6e24d2759d7bd50174ed1ff1e4))
+* support node-sass v5.0.0 ([#899](https://github.com/webpack-contrib/sass-loader/issues/899)) ([c3e279f](https://github.com/webpack-contrib/sass-loader/commit/c3e279fb4668fce4c597a6c8cd1d0f2ff8bc95e5))
+* support webpack@5 ([#794](https://github.com/webpack-contrib/sass-loader/issues/794)) ([6c59e37](https://github.com/webpack-contrib/sass-loader/commit/6c59e37e3f67668d7a3908444ddfc0176bc5601f))
+* typo in fix of modern api depedencies ([#1125](https://github.com/webpack-contrib/sass-loader/issues/1125)) ([50987bc](https://github.com/webpack-contrib/sass-loader/commit/50987bceca61b270375719ec6b731a071ecd83c2))
+* use "compressed" output when mode is "production" ([#723](https://github.com/webpack-contrib/sass-loader/issues/723)) ([b2af379](https://github.com/webpack-contrib/sass-loader/commit/b2af3798fb2ff552395de8fcca1f6be01c3ceb8c))
+* warnings and errors serialization ([#1142](https://github.com/webpack-contrib/sass-loader/issues/1142)) ([ed6f313](https://github.com/webpack-contrib/sass-loader/commit/ed6f3136f067e4c863077cb0d6c89c7ea8638bf8))
+* Wrong import precedence ([#557](https://github.com/webpack-contrib/sass-loader/issues/557)) ([f4eeff1](https://github.com/webpack-contrib/sass-loader/commit/f4eeff1dbcf37c9c0ce4bcb5d8d083bee4ecde8f))
+
+
+* code ([#833](https://github.com/webpack-contrib/sass-loader/issues/833)) ([f892eba](https://github.com/webpack-contrib/sass-loader/commit/f892eba837639ab373aa3a35b08d8349d7ea52bb))
+* drop webpack@4 ([#912](https://github.com/webpack-contrib/sass-loader/issues/912)) ([f8c8055](https://github.com/webpack-contrib/sass-loader/commit/f8c80553899c963d2693ad4e0a69525ae5006973))
+* minimum supported `Node.js` version is `12.13.0` ([530765b](https://github.com/webpack-contrib/sass-loader/commit/530765b13ff0490af67a7adc6f1c827f3b68dabf))
+* minimum supported `Node.js` version is `14.15.0` ([#1048](https://github.com/webpack-contrib/sass-loader/issues/1048)) ([4762909](https://github.com/webpack-contrib/sass-loader/commit/4762909775ac4ca34a585f52fc22c8de902ef0be))
+* minimum supported Nodejs version is `10.13` ([#828](https://github.com/webpack-contrib/sass-loader/issues/828)) ([a3dec34](https://github.com/webpack-contrib/sass-loader/commit/a3dec340310385c3a2273594e0b0987a64773e20))
+
 ### [13.3.2](https://github.com/webpack-contrib/sass-loader/compare/v13.3.1...v13.3.2) (2023-06-09)
 
 
